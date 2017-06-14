@@ -1,17 +1,18 @@
-FreeCodeCamp API: Image Search Abstraction Layer
+# FreeCodeCamp API: Image Search Abstraction Layer
 
-User stories:
+### User stories:
 
 I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
 I can paginate through the responses by adding a ?offset=2 parameter to the URL.
 I can get a list of the most recently submitted search strings.
 
-Example query usage:
+### Example query usage:
 
 https://img-sal.herokuapp.com/lolcats%20funny?offset=10
 https://img-sal.herokuapp.com/latest
 
-Example query output:
+### Example query output:
+```
 [
 {
 url: "http://vignette3.wikia.nocookie.net/austinally/images/c/c1/Grumpy_cat_row.jpg/revision/latest?cb=20131124014953",
@@ -32,13 +33,13 @@ thumbnail: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQs6ftPrMWkcQQx
 context: "http://austinally.wikia.com/wiki/File:Grumpy_cat_circle.jpg"
 }
 ]
-
-Example latest output:
-
+```
+### Example latest output:
+```
 [
 {
 term: "grumpy cat",
 when: "2017-06-14T08:29:34.194Z"
 }
 ]
-
+```
