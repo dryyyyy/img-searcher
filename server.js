@@ -1,17 +1,21 @@
-var express = require("express");
+'use strict'
+require('dotenv').config()
+
+
+const express = require("express");
 const PORT = process.env.PORT;
 //google search
-const CX = '004412081346264409078:pkmtbtz3ryu';
-const API_KEY = 'AIzaSyDLI9jHKSqtMf8-8n7dBsdyeDo61KFBIik';
+const CX = process.env.CX;
+const API_KEY = process.env.API_KEY;
 const google = require("google-search");
 const googleSearch  = new google({
   key: API_KEY,
   cx: CX
 });
 
-var app = express();
+let app = express();
 
-var recentSearches = [];
+let recentSearches = [];
 
 function isEmpty(array){
     if (array == undefined){
@@ -27,10 +31,10 @@ app.get('/', function(req, res){
 });
 
 app.get('/api/search/:query', function(req, res){
-    var query = req.params.query;
-    var offset = req.query.offset || 1;
-    var fileTypeArr = ['jpg', 'jpeg', 'png', 'tiff', 'raw'];
-    var currentSearch = {
+    let query = req.params.query;
+    let offset = req.query.offset || 1;
+    let fileTypeArr = ['jpg', 'jpeg', 'png', 'tiff', 'raw'];
+    let currentSearch = {
         term: req.params.query,
         when: new Date().toLocaleString()
     };
@@ -41,10 +45,10 @@ app.get('/api/search/:query', function(req, res){
         num: 10
     }, function (error, response){
         if (error) throw error;
-        var outputArr = [];
+        let outputArr = [];
         if(!isEmpty(response.items)){
-            for (var i = 0; i < response.items.length; ++i){
-                var outputObj = {
+            for (let i = 0; i < response.items.length; ++i){
+                let outputObj = {
                     url: response.items[i].pagemap.cse_image[0].src,
                     snippet: response.items[i].snippet,
                     thumbnail: response.items[i].pagemap.cse_thumbnail[0].src,
