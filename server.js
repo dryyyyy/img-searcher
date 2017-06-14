@@ -17,14 +17,6 @@ let app = express();
 
 let recentSearches = [];
 
-function isEmpty(array){
-    if (array == undefined){
-        return true;
-    } else {
-        return false;
-    }
-}
-
 
 app.get('/', function(req, res){
     res.redirect('/api/search/funny cats?offset=1');
@@ -46,7 +38,7 @@ app.get('/api/search/:query', function(req, res){
     }, function (error, response){
         if (error) throw error;
         let outputArr = [];
-        if(!isEmpty(response.items)){
+        if(response.items){
             for (let i = 0; i < response.items.length; ++i){
                 let outputObj = {
                     url: response.items[i].pagemap.cse_image[0].src,
