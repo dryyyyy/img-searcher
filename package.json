@@ -1,0 +1,24 @@
+{
+  "name": "img-searcher",
+  "version": "1.0.0",
+  "description": "4th api project on FCC",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dryyyyy/img-searcher.git"
+  },
+  "author": "dryyyyy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dryyyyy/img-searcher/issues"
+  },
+  "homepage": "https://github.com/dryyyyy/img-searcher#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "google-images": "^2.1.0",
+    "google-search": "0.0.5"
+  }
+}

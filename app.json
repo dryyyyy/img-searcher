@@ -1,0 +1,8 @@
+{
+  "name": "Image Search Abstraction Layer",
+  "description": "the third freecodecamp api project.js",
+  "repository": "https://github.com/dryyyyy/timestamp",
+  "logo": "N/A",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
