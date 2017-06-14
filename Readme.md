@@ -8,8 +8,8 @@ I can get a list of the most recently submitted search strings.
 
 ### Example query usage:
 
-https://img-sal.herokuapp.com/lolcats%20funny?offset=10 <br/>
-https://img-sal.herokuapp.com/latest
+https://image-searcher-by-dryyyyy.herokuapp.com/api/search/funny%20cats?offset=1 <br/>
+https://image-searcher-by-dryyyyy.herokuapp.com/api/latest
 
 ### Example query output:
 ```
