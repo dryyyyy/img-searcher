@@ -32,7 +32,7 @@ app.get('/api/search/:query', function(req, res){
     var fileTypeArr = ['jpg', 'jpeg', 'png', 'tiff', 'raw'];
     var currentSearch = {
         term: req.params.query,
-        when: new Date()
+        when: new Date().toLocaleString()
     };
     googleSearch.build({
         q: query,
