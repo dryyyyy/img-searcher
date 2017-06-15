@@ -25,7 +25,7 @@ let recentSearches = [];
 
 
 app.get('/', function(req, res){
-    res.redirect('/api/search/funny cats?offset=1');
+    res.redirect('/api/search/');
 });
 
 app.get('/api/search', function(req, res) {
