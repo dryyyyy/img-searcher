@@ -58,6 +58,7 @@ app.get('/api/search/:query', function(req, res){
     }, function (error, response){
         if (error) throw error;
         let outputArr = [];
+        console.log("items " + response.items);
         if(response.items){
             for (let i = 0; i < response.items.length; ++i){
                 if (response.items[i].pagemap.cse_image){
