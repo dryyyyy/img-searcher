@@ -6,7 +6,7 @@ const express = require("express");
 
 //mongoDB
 const mongo = require("mongodb").MongoClient
-const url = 'mongodb://' + process.env.IP + ':27017/queryLog'
+const url = 'mongodb://' + process.env.dbuser + ':' + process.env.dbpass +'@ds127962.mlab.com:27962/query-log'
 console.log(process.env.IP);
 
 const PORT = process.env.PORT;
@@ -43,7 +43,7 @@ app.get('/api/search/:query', function(req, res){
     mongo.connect(url, function(err, db){
         if (err) throw err;
         
-        var recentQueries = db.collection('recentQueries');
+        let recentQueries = db.collection('recentQueries');
         recentQueries.insert(currentSearch, function (err, data){
             if (err) throw err;
             db.close();
