@@ -50,7 +50,7 @@ app.get('/api/search/:query', function(req, res){
         });
     });
     
-    
+    //search
     googleSearch.build({
         q: query,
         start: offset,
@@ -58,8 +58,10 @@ app.get('/api/search/:query', function(req, res){
     }, function (error, response){
         if (error) throw error;
         let outputArr = [];
+        console.log(Object.values(response));
         if(response.items){
             for (let i = 0; i < response.items.length; ++i){
+                console.log(response.to)
                 if (response.items[i].pagemap.cse_image){
                     let outputObj = {
                         url: response.items[i].pagemap.cse_image[0].src,
