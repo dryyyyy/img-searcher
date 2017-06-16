@@ -58,7 +58,7 @@ app.get('/api/search/:query', function(req, res){
     }, function (error, response){
         if (error) throw error;
         let outputArr = [];
-        console.log('response ' + response);
+        console.log('response ' + JSON.stringify(response));
         if(response.items){
             for (let i = 0; i < response.items.length; ++i){
                 console.log(response.to)
