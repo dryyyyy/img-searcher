@@ -6,9 +6,8 @@ const express = require("express");
 
 //mongoDB
 const mongo = require("mongodb").MongoClient
-const url = 'mongodb://' + process.env.dbuser + ':' + process.env.dbpass +'@ds127962.mlab.com:27962/query-log'
-console.log(process.env.IP);
-
+const url = 'mongodb://' + process.env.dbuser + ':' + process.env.dbpass + '@cluster0-shard-00-00-5ugjp.mongodb.net:27017,cluster0-shard-00-01-5ugjp.mongodb.net:27017,cluster0-shard-00-02-5ugjp.mongodb.net:27017/query-log?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
+//
 const PORT = process.env.PORT;
 //google search
 const CX = process.env.CX;
@@ -18,11 +17,8 @@ const googleSearch  = new google({
   key: API_KEY,
   cx: CX
 });
-
+//
 let app = express();
-
-let recentSearches = [];
-
 
 app.get('/', function(req, res){
     res.redirect('/api/search/');
@@ -31,6 +27,7 @@ app.get('/', function(req, res){
 app.get('/api/search', function(req, res) {
     res.send('Type in your query after /api/search');
 });
+
 
 app.get('/api/search/:query', function(req, res){
     let query = req.params.query;
@@ -58,10 +55,8 @@ app.get('/api/search/:query', function(req, res){
     }, function (error, response){
         if (error) throw error;
         let outputArr = [];
-        console.log('response ' + JSON.stringify(response));
         if(response.items){
             for (let i = 0; i < response.items.length; ++i){
-                console.log(response.to)
                 if (response.items[i].pagemap.cse_image){
                     let outputObj = {
                         url: response.items[i].pagemap.cse_image[0].src,
@@ -81,7 +76,6 @@ app.get('/api/search/:query', function(req, res){
         } else {
             res.send('No matches found');
         }
-        recentSearches.push(currentSearch);
     });
 });
 
